@@ -8,7 +8,6 @@ class Marcas extends BaseController
     {
 
         $marcaM = model('MarcaM');
-
         $data['marcas'] = $marcaM->findAll();
         return view('head') .
                 view('menu') . 

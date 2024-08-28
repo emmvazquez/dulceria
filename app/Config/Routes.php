@@ -9,6 +9,7 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/marcas','Marcas::index');
 $routes->get('/marcas/add','Marcas::add');
+$routes->get('/proveedor/add','Proveedor::add');
 $routes->post('/marcas/insert','Marcas::insert');
 
 $routes->get('/marcas/edit/(:num)','Marcas::edit/$1');
