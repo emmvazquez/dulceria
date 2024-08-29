@@ -3,6 +3,7 @@
         <div class="col">
             <h2>Agregar proveedor</h2>
 
+            <form action="<?=base_url('proveedor/insert'); ?>" method="POST">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" name="nombre">
 
@@ -26,7 +27,8 @@
 
             </select>
             
-            <input type="submit" class="btn btn-success mt-3" >
+            <input type="submit" class="btn btn-success mt-3" name="Guardar" value="Guardar">
+            </form>
         </div>
     </div>
 </div>
