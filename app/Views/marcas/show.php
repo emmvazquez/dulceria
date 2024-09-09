@@ -6,8 +6,6 @@
         <a href="<?=base_url('marcas/add/');?> " class="btn btn-success">Agregar</a>
     </div>
 </div>
-
-<?php echo "aqui"; print_r($marcas); ?>
     <div class="row">
         <div class="col">
             <table class="table table-striped table-bordered">

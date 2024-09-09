@@ -4,6 +4,10 @@ namespace App\Controllers;
 
 class Marcas extends BaseController
 {
+    public $csrfProtection = 'session';
+    public $tokenRandomize = true;
+    protected $helpers = ['form'];
+
     public function index(): string
     {
 
@@ -53,14 +57,36 @@ class Marcas extends BaseController
 
 
     public function insert(){ //post
-        echo "aqui insertamos";
+        if (! $this->request->is('post')) {
+                $this->index();
+        }
+        
+        $rules = [
+            'marca' => 'required'
+        ];
+
         $data = [
           "marca" => $_POST['marca']
         ] ;
 
-        $marcaM = model('MarcaM');
-        $marcaM->insert($data);
-        return redirect()->to(base_url('/marcas'));
+        // Valida los datos
+            if (! $this->validate($rules)) {
+                // Si la validación falla, vuelve a cargar la vista con los errores
+                return     
+                view('head') .
+                view('menu') . 
+                view('marcas/add',[
+                    'validation' => $this->validator
+                ]) .
+                view('footer'); 
+            }
+            else{
+                $marcaM = model('MarcaM');
+                $marcaM->insert($data);
+                return redirect()->to(base_url('/marcas'));
+            }
+
+        
     }
 
 

@@ -9,6 +9,7 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/marcas','Marcas::index');
 $routes->get('/proveedor','Proveedor::index');
+$routes->get('/categoria','Categoria::index');
 
 
 $routes->get('/marcas/add','Marcas::add');
@@ -22,3 +23,4 @@ $routes->post('/marcas/update/','Marcas::update/');
 
 
 $routes->get('/marcas/delete/(:num)','Marcas::delete/$1');
+$routes->get('/categoria/delete/(:num)','Categoria::delete/$1');

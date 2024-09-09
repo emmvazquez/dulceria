@@ -4,16 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProveedorM extends Model
+class CategoriaM extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'Proveedor';
-    protected $primaryKey       = 'idProveedor';
+    protected $table            = 'categorias';
+    protected $primaryKey       = 'idCategoria';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nombre','telefono','calle','numero','cp','idEstado'];
+    protected $allowedFields    = ['categoria','abreviatura'];
 
     // Dates
     protected $useTimestamps = true;
@@ -38,19 +38,4 @@ class ProveedorM extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-
-    public function getProveedores(){
-        $db = db_connect();
-
-        $sql= "select proveedor.*, Estado.estado
-                from proveedor,Estado 
-                where proveedor.idEstado = estado.idEstado 
-        ";
-        $query= $db->query($sql);
-
-       
-        return $query->getResult();
-
-    }
 }
