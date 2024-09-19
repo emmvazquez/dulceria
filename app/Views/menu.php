@@ -37,9 +37,7 @@
         </li> 
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">
-            <?php
-              $session = session();
-              echo $_SESSION['nombre'];
+            <?=$nombre;
             ?>
           </a>
         </li>

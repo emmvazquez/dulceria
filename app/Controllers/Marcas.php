@@ -25,15 +25,15 @@ class Marcas extends BaseController
     public function index()
     {  
         $session = session();
-        if(!$session->has('logged_in')==true && $session->has('tipo')!=0){
+        if($session->get('logged_in')!=true || $session->get('tipo')!=0){
             return redirect()->to(base_url('/usuario'));
         }
-
+        $data1['nombre'] = $session->get('nombre');
 
         $marcaM = model('MarcaM');
         $data['marcas'] = $marcaM->findAll();
         return view('head') .
-                view('menu') . 
+                view('menu',$data1) . 
                 view('marcas/show', $data) .
                 view('footer');
     }
