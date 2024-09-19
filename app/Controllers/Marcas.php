@@ -8,8 +8,27 @@ class Marcas extends BaseController
     public $tokenRandomize = true;
     protected $helpers = ['form'];
 
-    public function index(): string
-    {
+    
+    
+    public function valida(){
+        $session = session();
+        $session->has('logged_in');
+        
+            if($session->has('logged_in')){
+                return redirect()->to(base_url('/usuario'));
+                
+            }
+        
+        print_r($_SESSION);
+    }
+
+    public function index()
+    {  
+        $session = session();
+        if(!$session->has('logged_in')==true && $session->has('tipo')!=0){
+            return redirect()->to(base_url('/usuario'));
+        }
+
 
         $marcaM = model('MarcaM');
         $data['marcas'] = $marcaM->findAll();

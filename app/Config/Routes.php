@@ -10,6 +10,10 @@ $routes->get('/', 'Home::index');
 $routes->get('/marcas','Marcas::index');
 $routes->get('/proveedor','Proveedor::index');
 $routes->get('/categoria','Categoria::index');
+$routes->get('/usuario','Usuario::index');
+$routes->get('/usuario/salir','Usuario::salir');
+
+$routes->post('/usuario/acceder','Usuario::acceder');
 
 
 $routes->get('/marcas/add','Marcas::add');

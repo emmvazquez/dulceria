@@ -34,6 +34,17 @@
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">
+            <?php
+              $session = session();
+              echo $_SESSION['nombre'];
+            ?>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?=base_url('/usuario/salir'); ?>">Salir</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
